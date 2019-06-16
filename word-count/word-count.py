@@ -18,6 +18,7 @@ wordCounts = words.map(lambda x: (x, 1)).reduceByKey(lambda x, y: x + y)
 wordCountsSorted = wordCounts.map(lambda x: (x[1], x[0])).sortByKey()
 results = wordCountsSorted.collect()
 
+#display results
 for result in results:
     count = str(result[0])
     word = result[1].encode('ascii', 'ignore')
