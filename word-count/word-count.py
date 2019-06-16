@@ -11,7 +11,7 @@ conf = SparkConf().setMaster("local").setAppName("WordCount")
 sc = SparkContext(conf = conf)
 
 #Load data
-input = sc.textFile("file:///sparkcourse/book.txt")
+input = sc.textFile("file:///sparkcourse/book.txt") #data file path
 words = input.flatMap(normalizeWords)
 
 wordCounts = words.map(lambda x: (x, 1)).reduceByKey(lambda x, y: x + y)
